@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@v10.2.0
         with:
           enable-cache: true
       # Fails if uv.lock is out of date with pyproject.toml.
@@ -74,5 +74,6 @@ jobs:
       # Installs exactly what package-lock.json says.
       - run: npm ci
       - run: npm run lint
-      - run: npx tsc --noEmit
+      # Generates Next.js route types (e.g. LayoutProps) first, then checks types.
+      - run: npm run typecheck
       - run: npm run build

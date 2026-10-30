@@ -40,7 +40,7 @@ Open http://localhost:3000. The home page shows whether the API can reach Postgr
 
 ```
 cd api && uv run ruff check . && uv run ruff format --check . && uv run pytest
-cd web && npm run lint && npx tsc --noEmit
+cd web && npm run lint && npm run typecheck
 ```
 
 ## Stopping
